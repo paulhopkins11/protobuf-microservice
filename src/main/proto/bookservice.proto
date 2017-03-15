@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "uk.co.frameworktraining.grpc.proto";
+
+package bookservice;
+
+// The book service definition.
+service BookService {
+  rpc getAllBooks (BookRequest) returns (BookReply) {}
+}
+
+message Book {
+  string title = 1;
+  string isbn = 2;
+  string description = 3;
+  int32 id = 4;
+}
+
+message BookRequest {
+  string title = 1;
+}
+
+message BookReply {
+  repeated Book books = 1;
+}
